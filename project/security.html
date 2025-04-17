@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Security - GuardianPi</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <a href="home.html">
+          <img src="images/PiLogo.png" alt="GuardianPi Logo" />
+        </a>
+      </div>
+      <div class="sidebar-section">
+        <a href="/project/about.html" class="icon">ℹ️</a>
+        <div class="separator"></div>
+        <a href="/project/data.html" class="icon">📊</a>
+        <a href="/project/notification.html" class="icon">🔔</a>
+        <a href="/project/security.html" class="icon">🛡️</a>
+        <div class="separator"></div>
+        <a href="/project/profile.html" class="icon">👤</a>
+        <a href="/project/settings.html" class="icon">🎛️</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="main-inner">
+        <header class="topnav">
+          <nav class="nav-sections">
+            <div class="nav-left">
+              <a href="/project/about.html">About Us</a>
+              <a href="/project/data.html">Data</a>
+              <a href="/project/notification.html">Alerts</a>
+            </div>
+            <h1>GuardianPi</h1>
+            <div class="nav-right">
+              <a href="/project/security.html">Security</a>
+              <a href="/project/profile.html">Account</a>
+              <a href="/project/settings.html">Settings</a>
+            </div>
+          </nav>
+        </header>
+
+        <section class="security-section">
+          <h2>Security Logs</h2>
+
+          <div class="security-logs">
+            <h3>Recent User Logs</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Action</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="log-body"></tbody>
+            </table>
+          </div>
+
+          <div class="security-settings">
+            <h3>Change Password</h3>
+            <form id="password-form">
+              <label for="current-password">Current Password</label>
+              <input type="password" id="current-password" required>
+
+              <label for="new-password">New Password</label>
+              <input type="password" id="new-password" required>
+
+              <label for="confirm-password">Confirm New Password</label>
+              <input type="password" id="confirm-password" required>
+
+              <button type="submit" class="submit-btn">Update Password</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const username = localStorage.getItem("guardianUser") || "Unknown";
+
+    function loadLogs() {
+      const logs = JSON.parse(localStorage.getItem("securityLogs")) || [];
+      const tbody = document.getElementById("log-body");
+      tbody.innerHTML = "";
+
+      logs.forEach(log => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${log.user}</td>
+          <td>${log.action}</td>
+          <td>${log.time}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function addLog(action) {
+      const logs = JSON.parse(localStorage.getItem("securityLogs")) || [];
+      const now = new Date().toLocaleString();
+      logs.unshift({ user: username, action, time: now });
+      localStorage.setItem("securityLogs", JSON.stringify(logs.slice(0, 10)));
+      loadLogs();
+    }
+
+    // Log password change
+    document.getElementById("password-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const newPass = document.getElementById("new-password").value;
+      const confirmPass = document.getElementById("confirm-password").value;
+
+      if (newPass === confirmPass) {
+        addLog("Password Changed");
+        alert("Password changed successfully!");
+        this.reset();
+      } else {
+        alert("Passwords do not match.");
+      }
+    });
+
+    loadLogs();
+  </script>
+</body>
+</html>
