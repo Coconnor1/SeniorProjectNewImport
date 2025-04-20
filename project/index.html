@@ -3,67 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - GuardianPi</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap" rel="stylesheet">
+  <title>Login - Guardian PI</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Oxygen Mono', monospace;
-      background-color: #f5f5f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      background-color: #7a7777;
+      background-image: repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 35px,
+        white 35px,
+        white 36px
+      );
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
     }
 
-    .login-container {
-      background: #fff;
+    .login-box {
+      background-color: white;
       padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       width: 100%;
-      max-width: 400px;
+      max-width: 360px;
       text-align: center;
     }
 
-    .login-container h1 {
-      margin-bottom: 30px;
-      font-size: 2rem;
+    .logo {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 20px;
     }
 
-    .login-container input {
-      width: 100%;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
       padding: 12px;
-      margin: 10px 0;
       font-size: 1rem;
-      border: 1px solid #ccc;
+      border: none;
+      background-color: #f0eded;
       border-radius: 6px;
+      outline: none;
     }
 
-    .login-container button {
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
+    .submit-btn {
+      margin-top: 10px;
+      padding: 14px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 12px;
       background-color: #4CAF50;
       color: white;
-      border: none;
-      border-radius: 6px;
       cursor: pointer;
-      margin-top: 10px;
+      font-weight: bold;
     }
 
-    .login-container button:hover {
+    .submit-btn:hover {
       background-color: #45a049;
     }
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <h1>GuardianPi Login</h1>
+
+  <div class="login-box">
+    <div class="logo">
+      <a href="home.html">
+        <img src="images/PiLogo.png" alt="GuardianPi Logo" />
+      </a>
     <form onsubmit="handleLogin(event)">
       <input type="text" placeholder="Username" id="username" required />
       <input type="password" placeholder="Password" id="password" required />
-      <button type="submit">Login</button>
+      <button type="submit" class="submit-btn">Login</button>
     </form>
   </div>
 
@@ -87,5 +110,6 @@
       }
     }
   </script>
+
 </body>
 </html>

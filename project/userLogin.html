@@ -1,112 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Guardian PI</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Guardian PI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Body styling */
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0; 
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      background-color: #7a7777;
+      background-image: repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 35px,
+        white 35px,
+        white 36px
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-            align-items: baseline;
-        }
+    .login-box {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 360px;
+      text-align: center;
+    }
 
-        /* Login Box Styling */
-        .login-box {
-            background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-            scroll-padding: 55px;
-        }
+    .logo {
+        width: 100px;
+        border-radius: 50%;
+    }
 
-        .login-box h1 {
-            margin-bottom: 30px;
-            margin-bottom: 30px;
-        }
 
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
 
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
+    input[type="text"],
+    input[type="password"] {
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      background-color: #f0eded;
+      border-radius: 6px;
+      outline: none;
+    }
 
-        .input-group input {
-            width: 100%;
-            padding: 10px;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+    .forgot-password {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #777;
+      text-decoration: none;
+    }
 
-        /* Submit Button Styling */
-        .submit-btn {
-            padding: 10px 20px;
-            font-size: 1rem;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            background-color: #45a049;
-        }
-    </style>
+    .submit-btn {
+      margin-top: 20px;
+      padding: 14px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 12px;
+      background-color: #ddd;
+      color: #888;
+      cursor: not-allowed;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="login-box">
-        <h1>Guardian PI</h1>
-
-        <!-- Login Form -->
-        <form action="#" method="POST">
-            <!-- Username Field -->
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username" required>
-            </div>
-
-            <!-- Password Field -->
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="submit-btn">Log In</button>
-        </form>
-    </div>
+  <div class="login-box">
+    <img src = "images/PiLogo.png" alt = "Guardian PI Logo" class = "logo">
+    <form action="#" method="POST">
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <a href="#" class="forgot-password">Forgot Password?</a>
+      <button type="submit" class="submit-btn">Login</button>
+    </form>
+  </div>
 
 </body>
 </html>

@@ -1,79 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data - Guardian PI</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Logs - GuardianPi</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="layout">
 
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <div class="logo">
-                <a href="home.html">
-                  <img src="images/PiLogo.png" alt="GuardianPi Logo" />
-                </a>
-              </div>
-        <ul>
-            <li><a href="data.html"><i class=""></i> Data</a></li>
-            <li><a href="notification.html"><i class=""></i> Notification</a></li>
-            <li><a href="security.html"><i class=""></i> Security</a></li>
-            <li><a href="profile.html"><i class=""></i> Account</a></li>
-            <li><a href="settings.html"><i class=""></i> Settings</a></li>
-            <li><a href="about.html"><i class=""></i> About Us</a></li>
-        </ul>
-    </div>
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="images/PiLogo.png" alt="GuardianPi Logo" />
+      </div>
+      <div class="sidebar-section">
+        <a href="about.html" class="icon">ℹ️</a>
+        <div class="separator"></div>
+        <a href="data.html" class="icon">📊</a>
+        <a href="notification.html" class="icon">🔔</a>
+        <a href="security.html" class="icon">🛡️</a>
+        <div class="separator"></div>
+        <a href="profile.html" class="icon">👤</a>
+        <a href="settings.html" class="icon">🎛️</a>
+      </div>
+    </aside>
 
     <!-- Main Content -->
-    <div class="main-content">
-        <header>
-            <nav>
-                <a href="about.html">About Us</a>
-                <a href="data.html">Data</a>
-                <a href="notification.html">Alerts</a>
-                <a href="security.html">Security</a>
-                <a href="profile.html">Account</a>
-                <a href="settings.html">Settings</a>
-            </nav>
-        </header>
-        <h1>Data</h1>
+    <main class="main">
+      <div class="main-inner">
 
-        <!-- Table that will be populated with SQL data -->
-        <table>
+        <!-- Top Navigation -->
+        <header class="topnav">
+          <nav class="nav-sections">
+            <div class="nav-left">
+              <a href="about.html">About Us</a>
+              <a href="data.html">Data</a>
+              <a href="notification.html">Alerts</a>
+            </div>
+
+            <h1>GuardianPi</h1>
+
+            <div class="nav-right">
+              <a href="security.html">Security</a>
+              <a href="profile.html">Account</a>
+              <a href="settings.html">Settings</a>
+            </div>
+          </nav>
+        </header>
+
+        <!-- Data Table Placeholder -->
+        <section class="data-section" style="margin-top: 60px;">
+          <h2 style="margin-bottom: 25px;">System Data Logs</h2>
+
+          <table class="data-table">
             <thead>
-                <tr>
-                    <th>x</th>
-                    <th>x</th>
-                    <th>x</th>
-                    <th>x</th>
-                </tr>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Event Type</th>
+                <th>Description</th>
+              </tr>
             </thead>
             <tbody>
-                <!-- Use PHP here to connect to SQL database and display data -->
-                <!-- Example static rows for now -->
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                </tr>
+              <tr>
+                <td colspan="4" style="text-align: center;">No data available at this time.</td>
+              </tr>
             </tbody>
-        </table>
-    </div>
+          </table>
 
+        </section>
+
+      </div>
+    </main>
+  </div>
 </body>
 </html>

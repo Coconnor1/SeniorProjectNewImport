@@ -6,33 +6,78 @@
   <title>Account Settings - GuardianPi</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: block !important;
+    }
+
+    .layout {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: row;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topnav {
+      padding: 20px 0;
+    }
+
+    .nav-sections {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      flex-wrap: wrap;
+    }
+
+    .nav-left, .nav-right {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .topnav h1 {
+      font-size: 36px;
+      font-weight: normal;
+      margin: 0;
+      flex-grow: 1;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <div class="layout">
-    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="logo">
         <a href="home.html">
           <img src="images/PiLogo.png" alt="GuardianPi Logo" />
         </a>
       </div>
-        <div class="sidebar-section">
-          <a href="/project/about.html" class="icon">ℹ️</a>
-          <div class="separator"></div>
-          <a href="/project/data.html" class="icon">📊</a>
-          <a href="/project/notification.html" class="icon">🔔</a>
-          <a href="/project/security.html" class="icon">🛡️</a>
-          <div class="separator"></div>
-          <a href="/project/profile.html" class="icon">👤</a>
-          <a href="/project/settings.html" class="icon">🎛️</a>
-        </div>
+      <div class="sidebar-section">
+        <a href="/project/about.html" class="icon">ℹ️</a>
+        <div class="separator"></div>
+        <a href="/project/data.html" class="icon">📊</a>
+        <a href="/project/notification.html" class="icon">🔔</a>
+        <a href="/project/security.html" class="icon">🛡️</a>
+        <div class="separator"></div>
+        <a href="/project/profile.html" class="icon">👤</a>
+        <a href="/project/settings.html" class="icon">🎛️</a>
       </div>
     </aside>
 
-    <!-- Main Content -->
     <main class="main">
       <div class="main-inner">
-        <!-- Top Nav -->
         <header class="topnav">
           <nav class="nav-sections">
             <div class="nav-left">
@@ -49,7 +94,6 @@
           </nav>
         </header>
 
-        <!-- Account Settings Content -->
         <section class="account-settings">
           <h2>Account Settings</h2>
 
@@ -61,16 +105,12 @@
           <form class="account-form">
             <label for="first-name">First Name</label>
             <input type="text" id="first-name" placeholder="Enter your first name">
-
             <label for="last-name">Last Name</label>
             <input type="text" id="last-name" placeholder="Enter your last name">
-
             <label for="email">Email</label>
             <input type="email" id="email" placeholder="Enter your email">
-
             <label for="phone">Phone Number</label>
             <input type="tel" id="phone" placeholder="Enter your phone number">
-
             <button type="submit" class="save-btn">Save</button>
           </form>
         </section>
@@ -79,5 +119,3 @@
   </div>
 </body>
 </html>
-
-
